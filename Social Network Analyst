@@ -1,0 +1,120 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled1.ipynb",
+      "provenance": [],
+      "collapsed_sections": [],
+      "authorship_tag": "ABX9TyPubdNRfZ4fPB/cYjvrqBXn",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Phungthu00/btap/blob/main/Social%20Network%20Analyst\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "Uka2tJ51fu9y"
+      },
+      "source": [
+        "#Edge Attributes in NetworkX\n",
+        "G=nx.Graph()\n",
+        "G.add_edge('A','B',weight=6,relation='family')\n",
+        "G.add_edge('B','C',weight=13,relation='friend')\n",
+        "G.add_edge('C','F',weight=21,relation='Coworker')\n",
+        "G.add_edge('F','G',weight=9,relation='Friend')\n",
+        "G.add_edge('C','E',weight=25,relation='Neighbor')\n",
+        "G.add_edge('E','D',weight=2,relation='Coworker')\n",
+        "G.add_edge('E','I',weight=10,relation='Coworker')\n",
+        "G.add_edge('E','J'weight=15, relation='Family')\n",
+        "G.add_edge('I','J',weight=3,relation='Coworker')\n",
+        "G.add_edge('E','H',weight=9,relation='Coworker')\n",
+        "#Directed, weighted network:\n",
+        "G=nx.DiGraph()\n",
+        "G.add_edge('A','B',weight=6,relation='family')\n",
+        "G.add_edge('C','B',weight=13,relation='friend')\n",
+        "G.add_edge('C','F',weight=21,relation='Coworker')\n",
+        "G.add_edge('G','F',weight=9,relation='Friend')\n",
+        "G.add_edge('C','E',weight=25,relation='Neighbor')\n",
+        "G.add_edge('D','E',weight=2,relation='Coworker')\n",
+        "G.add_edge('I','E',weight=10,relation='Coworker')\n",
+        "G.add_edge('I','J',weight=3,relation='Coworker')\n",
+        "G.add_edge('J','E',weight=15,relation='Family')\n",
+        "G.add_edge('E','H',weight=9,relation='Coworker')\n",
+        "#MutiGraph:\n",
+        "G=nx.MultiGraph()\n",
+        "G.add_edge('A','B',weight=6,relation='family')\n",
+        "G.add_edge('A','B',weight=18,relation='friend')\n",
+        "G.add_edge('C','B',weight=13,relation='friend')\n",
+        "G.add_edge('C','F',weight=21,relation='coworker')\n",
+        "G.add_edge('F','G',weight=9,relation='friend')\n",
+        "G.add_edge('F','G',weight=3,relation='neighbor')\n",
+        "G.add_edge('C','E',weight=25,relation='neighbor')\n",
+        "G.add_edge('E','D',weight=2,relation='Coworker')\n",
+        "G.add_edge('E','I',weight=10,relation='Coworker')\n",
+        "G.add_edge('I','J',weight=3,relation='Coworker')\n",
+        "G.add_edge('E','J',weight=15,relation='family')\n",
+        "G.add_edge('E','H',weight=9,relation='coworker')\n",
+        "G.add_edge('E','H',weight=10,relation='Friend')\n",
+        "#Directed MultiGraph:\n",
+        "G=nx.MultiGraph()\n",
+        "G.add_edge('A','B',weight=6,relation='family')\n",
+        "G.add_edge('A','B',weight=18,relation='friend')\n",
+        "G.add_edge('C','B',weight=13,relation='friend')\n",
+        "G.add_edge('C','F',weight=21,relation='coworker')\n",
+        "G.add_edge('G','F',weight=9,relation='friend')\n",
+        "G.add_edge('F','G',weight=3,relation='neighbor')\n",
+        "G.add_edge('C','E',weight=25,relation='neighbor')\n",
+        "G.add_edge('D','E',weight=2,relation='Coworker')\n",
+        "G.add_edge('I','E',weight=10,relation='Coworker')\n",
+        "G.add_edge('I','J',weight=3,relation='Coworker')\n",
+        "G.add_edge('J','E',weight=15,relation='family')\n",
+        "G.add_edge('E','H',weight=9,relation='coworker')\n",
+        "G.add_edge('E','H',weight=10,relation='Friend')\n",
+        "#Node Attributes in NetworkX\n",
+        "G=nx.Graph()\n",
+        "G.add_edge('A','B',weight=6,relation='family')\n",
+        "G.add_edge('B','C',weight=13,relation='friend')\n",
+        "G.add_edge('C','F',weight=21,relation='Coworker')\n",
+        "G.add_edge('F','G',weight=9,relation='friend')\n",
+        "G.add_edge('C','E',weight=25,relation='neighbor')\n",
+        "G.add_edge('E','D',weight=2,relation='coworker')\n",
+        "G.add_edge('E','I',weight=10,relation='coworker')\n",
+        "G.add_edge('I','J',weight=3,relation='coworker')\n",
+        "G.add_edge('E','J',weight=15,relation='family')\n",
+        "G.add_edge('E','H',weight=9,relation='coworker')\n",
+        "#Adding node attibutes:\n",
+        "G.add_node('A',role='trader')\n",
+        "G.add_node('B',role='trader')\n",
+        "G.add_node('C',role='manager')\n",
+        "G.add_node('F',role='analyst')\n",
+        "G.add_node('G',role='trader')\n",
+        "G.add_node('E',role='manager')\n",
+        "G.add_node('D',role='analyst')\n",
+        "G.add_node('I',role='manager')\n",
+        "G.add_node('J',role='trader')\n",
+        "G.add_node('H',role='trader')\n",
+        "\n"
+      ],
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
